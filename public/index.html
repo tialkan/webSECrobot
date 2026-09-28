@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WebSECRobot — Pasif web güvenliği denetimi</title>
+  <meta name="description" content="HTTPS, güvenlik başlıkları, çerezler ve CORS sinyallerini canlı HTTP kanıtlarıyla denetleyin; raporu yapay zekânızla düzeltin.">
+  <link rel="canonical" href="https://tezatlas.com/websecrobot">
+  <link rel="stylesheet" href="/websecrobot/styles.css">
+</head>
+<body>
+  <main>
+    <header><a href="https://tezatlas.com">TezAtlas</a><a href="https://github.com/tialkan/webSECrobot">GitHub ↗</a></header>
+    <section class="hero">
+      <div><p class="tag">AÇIK KAYNAK · PASİF DENETİM</p><h1>Sitenizin<br><span>güvenlik yüzeyini</span> görün.</h1><p class="lead">Herkese açık HTTP davranışını zarar vermeden inceler. Kanıtı gösterir, önceliklendirir ve düzeltme işini yapay zekânıza devretmenizi kolaylaştırır.</p>
+        <form id="audit-form"><label for="site-url">Denetlenecek site</label><div><input id="site-url" type="url" placeholder="ornek.com" required><button>Güvenliği denetle →</button></div><small>Yalnızca sahibi olduğunuz veya denetlemeye yetkili olduğunuz sitelerde kullanın.</small></form>
+      </div>
+      <aside><b>PASİF MOD</b><h2>Açığı istismar etmez.</h2><ol><li>Normal GET istekleri</li><li>Sınırlı sayfa örneklemi</li><li>Canlı başlık kanıtı</li><li>Güvenli düzeltme istemi</li></ol></aside>
+    </section>
+    <section id="status" class="status hidden" aria-live="polite">Canlı güvenlik sinyalleri inceleniyor…</section>
+    <section id="results" class="results hidden" aria-live="polite"><div class="result-head"><div><p class="tag">CANLI RAPOR</p><h2>Beş ayrı güvenlik alanı.</h2></div><div><button id="json">JSON indir</button><button id="md">Markdown indir</button><button id="prompt">Düzeltme istemini kopyala</button></div></div><div id="summary" class="summary"></div><div id="scores" class="scores"></div><div id="findings"></div><p class="note">Bulgu olmaması sitenin güvenli olduğunu kanıtlamaz. Bu rapor sızma testi değildir.</p></section>
+    <section class="explain"><p class="tag">NEYE BAKAR?</p><h2>Saldırmadan görülebilen savunma katmanları.</h2><div class="grid"><article><b>01</b><h3>Taşıma</h3><p>HTTPS, HSTS, yönlendirme ve karışık içerik.</p></article><article><b>02</b><h3>Tarayıcı</h3><p>CSP, çerçeveleme, MIME ve izin politikaları.</p></article><article><b>03</b><h3>Çerezler</h3><p>Secure, HttpOnly ve SameSite nitelikleri.</p></article><article><b>04</b><h3>Çapraz köken</h3><p>CORS'un bilinmeyen kökenlere verdiği yanıt.</p></article><article><b>05</b><h3>Sızıntı</h3><p>Teknoloji ipuçları ve güvenlik bildirim kanalı.</p></article></div></section>
+    <footer><span>WebSECRobot · MIT</span><a href="https://tezatlas.com/websecrobot">Kullanım rehberi</a></footer>
+  </main>
+  <script src="/websecrobot/app.js" defer></script>
+</body>
+</html>
