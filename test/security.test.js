@@ -4,6 +4,7 @@ import { isPrivateIp, normalizeTarget } from "../src/security.js";
 import { parseHtml } from "../src/parser.js";
 import { calculateScores } from "../src/scoring.js";
 import { buildFixPrompt, reportToMarkdown } from "../src/report.js";
+import { WEBSITE_MASTER_PROMPT } from "../src/master-prompt.js";
 
 test("hedef adresini HTTPS ile normalleştirir", () => {
   assert.equal(normalizeTarget("example.com/path").href, "https://example.com/path");
@@ -32,4 +33,11 @@ test("rapor ve yapay zekâ istemi kanıtı taşır", () => {
   const report = { hedef: { girilen: "https://example.com", son: "https://example.com/" }, olusturuldu: "2026-01-01", ozet: { incelenenSayfa: 1 }, puanlar: { tasima: 80 }, sinirlar: ["Pasif"], bulgular: [{ kod: "HSTS-MISSING", kategori: "tasima", seviye: "orta", baslik: "HSTS yok", aciklama: "Yok", kanit: { url: "https://example.com", bulunan: "başlık yok" }, etkisi: "Risk", cozum: "Ekle", kaynaklar: ["https://owasp.org"] }] };
   assert.match(reportToMarkdown(report), /başlık yok/);
   assert.match(buildFixPrompt(report), /Exploit, parola denemesi/);
+});
+
+test("master prompt SEO, güvenlik ve yetkiye bağlı aktif doğrulama sınırlarını taşır", () => {
+  assert.match(WEBSITE_MASTER_PROMPT, /SIFIRDAN SEO \+ WEB GÜVENLİĞİ/);
+  assert.match(WEBSITE_MASTER_PROMPT, /Seviye 2 — Güvenli-aktif/);
+  assert.match(WEBSITE_MASTER_PROMPT, /DoS, yüksek hacimli istek, parola denemesi/);
+  assert.match(WEBSITE_MASTER_PROMPT, /canonical, robots, sitemap/);
 });

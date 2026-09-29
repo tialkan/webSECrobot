@@ -4,6 +4,8 @@ WebSECRobot, bir internet sitesinin dışarıdan gözlenebilen güvenlik sinyall
 
 Bir sızma testi değildir ve “site tamamen güvenli” garantisi vermez. HTTPS/HSTS, güvenlik başlıkları, çerez nitelikleri, CORS, karışık içerik ve gereksiz teknoloji sızıntılarını kanıtlarıyla gösterir. Çıktıyı JSON/Markdown olarak indirebilir veya güvenli düzeltme istemini kendi yapay zekâ aracınıza verebilirsiniz.
 
+TezAtlas sayfasında ayrıca sıfırdan geliştirilen bir siteye teknik SEO ve güvenlik temelini birlikte kurduran kopyalanabilir bir master prompt bulunur. Prompt production için pasif doğrulamayı varsayılan tutar; açık yetki ve local/staging kapsamı verildiğinde güvenli-aktif testlere kademeli geçer.
+
 **Kolay kullanım ve yöntem:** [tezatlas.com/websecrobot](https://tezatlas.com/websecrobot)
 
 **Kaynak kod:** [github.com/tialkan/webSECrobot](https://github.com/tialkan/webSECrobot)

@@ -7,7 +7,8 @@
   "license": "MIT",
   "exports": {
     ".": "./src/audit.js",
-    "./report": "./src/report.js"
+    "./report": "./src/report.js",
+    "./master-prompt": "./src/master-prompt.js"
   },
   "files": ["src", "docs", "prompts", "LICENSE", "README.md", "SECURITY.md"],
   "engines": { "node": ">=20.11" },
