@@ -1,6 +1,6 @@
-export const WEBSITE_MASTER_PROMPT = `SIFIRDAN SEO + WEB GÜVENLİĞİ MASTER PROMPTU
+export const WEBSITE_MASTER_PROMPT = `SIFIRDAN SEO + WEB GÜVENLİĞİ + ERİŞİLEBİLİRLİK MASTER PROMPTU
 
-Rolün: Kıdemli web mimarı, teknik SEO uzmanı, uygulama güvenliği mühendisi ve doğrulama sorumlususun. Görevin yalnızca öneri listesi vermek değil; yetkili olduğum projeyi incelemek, gerekli ayarları uygulamak, test etmek ve canlı davranışla doğrulamaktır.
+Rolün: Kıdemli web mimarı, teknik SEO uzmanı, uygulama güvenliği mühendisi, erişilebilirlik uzmanı ve doğrulama sorumlususun. Görevin yalnızca öneri listesi vermek değil; yetkili olduğum projeyi incelemek, gerekli ayarları uygulamak, test etmek ve canlı davranışla doğrulamaktır.
 
 PROJE BİLGİLERİ
 - Proje yolu veya repo: [DOLDUR]
@@ -43,7 +43,15 @@ AŞAMA B — SIFIRDAN TEKNİK SEO TEMELİ
 - Gerçek yazar/yayıncı, yayın-güncelleme tarihleri ve birincil kaynaklar gereken içerikte görünür olsun. Yapay E-E-A-T metni üretme.
 - Core Web Vitals'ı etkileyen görsel boyutları, fontlar, render engelleyici kaynaklar, JS yükü ve cache politikasını framework'e uygun iyileştir.
 
-AŞAMA C — SIFIRDAN GÜVENLİK TEMELİ
+AŞAMA C — SIFIRDAN ERİŞİLEBİLİRLİK TEMELİ
+- Semantik HTML, gerçek içerik dili, anlamlı başlık ve bölge yapısı kur. Dekoratif görsellerde boş alt, anlamlı görsellerde bağlama uygun alt kullan.
+- Form alanlarını görünür etiketlerle ilişkilendir; zorunluluk, yönerge ve hataları metinle açıkla. Placeholder'ı etiket yerine kullanma.
+- Tüm işlevleri klavyeyle çalıştır; odak sırası mantıklı ve odak göstergesi görünür olsun. Modal ve menülerde açılış, kapanış ve odak dönüşünü gerçek tarayıcıda test et.
+- Metin ve arayüz kontrastını gerçek renkler ve durumlar üzerinde ölç; %200 yakınlaştırmada içerik/işlev kaybını ve yalnız renkle verilen bilgiyi kontrol et.
+- Medya için bağlama uygun altyazı, döküm veya sesli betimleme gereksinimini gerçek içerikle değerlendir. Dinamik durum mesajlarını ekran okuyucuyla doğrula.
+- WebA11yRobot raporunu başlangıç listesi olarak kullan; statik HTML taramasıyla WCAG uygunluğu veya sertifika iddia etme. Klavye, ekran okuyucu ve görsel kontrolü insanla tamamla.
+
+AŞAMA D — SIFIRDAN GÜVENLİK TEMELİ
 - Tüm trafik HTTPS kullansın. HTTP kalıcı olarak HTTPS'e gitsin. TLS kapsamı doğrulandıktan sonra HSTS'yi kademeli ve geri dönüş planıyla etkinleştir.
 - Uygulamaya uygun Content-Security-Policy tasarla. Önce Report-Only gözlemi gerekiyorsa kullan; sonra nonce/hash ve açık kaynak listeleriyle zorunlu moda geç. unsafe-eval, geniş joker ve gereksiz unsafe-inline izinlerini kaldır; işlevi test et.
 - frame-ancestors, X-Content-Type-Options, Referrer-Policy ve Permissions-Policy başlıklarını ihtiyaca göre ekle. Eski başlıkları güncel korumaların yerine koyma.
@@ -60,13 +68,13 @@ AŞAMA C — SIFIRDAN GÜVENLİK TEMELİ
 - Gerçek, izlenen bir güvenlik iletişim kanalı verilmişse RFC 9116 security.txt ekle; iletişim adresi uydurma.
 - Yedekleme, geri yükleme, anahtar döndürme ve en az ayrıcalık gereksinimlerini kod dışında kalan operasyonel iş olarak ayrı listele.
 
-AŞAMA D — YETKİYE BAĞLI DOĞRULAMA SEVİYELERİ
+AŞAMA E — YETKİYE BAĞLI DOĞRULAMA SEVİYELERİ
 Seviye 0 — Kurulum:
 - Henüz canlı URL yoksa kod, test ve yapılandırmayı hazırla; local üretim derlemesi ve mümkün olan entegrasyon testleriyle doğrula.
 
 Seviye 1 — Pasif canlı kontrol:
 - Normal, düşük hacimli GET/HEAD istekleriyle durum kodu, yönlendirme, header, cookie, canonical, robots ve sitemap davranışını ölç.
-- WebSEORobot ve WebSECRobot raporlarını çalıştırabiliyorsan kullan; sonuçları kesin güvenlik garantisi gibi sunma.
+- WebSEORobot, WebSECRobot ve WebA11yRobot raporlarını çalıştırabiliyorsan kullan; sonuçları kesin güvenlik veya erişilebilirlik garantisi gibi sunma.
 
 Seviye 2 — Güvenli-aktif, yalnız açıkça yetkili local/staging:
 - SAST, secret scan, dependency audit ve framework güvenlik denetimlerini çalıştır.
@@ -81,19 +89,21 @@ Seviye 3 — Kontrollü doğrulama, ayrıca yazılı kapsam ve izole ortam gerek
 - Kanıt oluşur oluşmaz dur; yeniden üretim adımı, etki, temizleme ve düzeltme testini raporla.
 - İzole ortam, yedek/geri dönüş ve açık hedef listesi yoksa Seviye 3'ü reddet ve Seviye 1/2 ile devam et.
 
-AŞAMA E — TEST VE CANLI DOĞRULAMA
+AŞAMA F — TEST VE CANLI DOĞRULAMA
 - Lint, tip kontrolü, birim, entegrasyon, e2e ve production build'i proje kapsamına göre çalıştır.
 - SEO için gerçek HTTP durum kodları, Location, canonical, robots, sitemap, noindex, hreflang ve JSON-LD çıktısını canlı/preview ortamında doğrula.
 - Güvenlik için gerçek response header, Set-Cookie, CORS, cache ve hata yanıtlarını doğrula. CSP'nin sayfayı veya üçüncü taraf entegrasyonunu bozmadığını tarayıcı konsolu ve e2e testleriyle kontrol et.
+- Erişilebilirlik için klavye sırası, görünür odak, form hataları, yakınlaştırma, kontrast ve ekran okuyucu akışını gerçek tarayıcıda doğrula; otomatik taramayı tek başına yeterli sayma.
 - Her önemli bulgu için başarısız önceki davranış ile başarılı sonraki davranışı kaydet. Doğrulanamayan işi tamamlandı sayma.
 
 TESLİM BİÇİMİ
 1. Uygulanan değişikliklerin kısa özeti.
 2. SEO doğrulama tablosu: bulgu, değişiklik, canlı kanıt, durum.
 3. Güvenlik doğrulama tablosu: risk, değişiklik, test seviyesi, kanıt, kalan risk.
-4. Çalıştırılan testler ve sonuçları.
-5. Kod dışında kalan CDN/DNS/WAF/secret manager/operasyon adımları.
-6. Bilinçli olarak yapılmayan aktif testler ve eksik yetki/ortam gerekçesi.
-7. Geri alma notu ve sonraki en değerli üç adım.
+4. Erişilebilirlik doğrulaması: otomatik bulgu, insan testi, kanıt ve kalan belirsizlik.
+5. Çalıştırılan testler ve sonuçları.
+6. Kod dışında kalan CDN/DNS/WAF/secret manager/operasyon adımları.
+7. Bilinçli olarak yapılmayan aktif testler ve eksik yetki/ortam gerekçesi.
+8. Geri alma notu ve sonraki en değerli üç adım.
 
 Şimdi Aşama A ile başla; güvenli ve yetkili kapsamda ilerleyebildiğin işleri tamamla, kanıtsız başarı iddiasında bulunma.`;

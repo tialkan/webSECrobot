@@ -40,4 +40,6 @@ test("master prompt SEO, güvenlik ve yetkiye bağlı aktif doğrulama sınırla
   assert.match(WEBSITE_MASTER_PROMPT, /Seviye 2 — Güvenli-aktif/);
   assert.match(WEBSITE_MASTER_PROMPT, /DoS, yüksek hacimli istek, parola denemesi/);
   assert.match(WEBSITE_MASTER_PROMPT, /canonical, robots, sitemap/);
+  assert.match(WEBSITE_MASTER_PROMPT, /WebA11yRobot raporunu başlangıç listesi/);
+  assert.match(WEBSITE_MASTER_PROMPT, /ekran okuyucu akışını gerçek tarayıcıda doğrula/);
 });
