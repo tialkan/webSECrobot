@@ -10,9 +10,20 @@
     "./report": "./src/report.js",
     "./master-prompt": "./src/master-prompt.js"
   },
-  "files": ["src", "docs", "prompts", "LICENSE", "README.md", "SECURITY.md"],
-  "engines": { "node": ">=20.11" },
-  "bin": { "websecrobot": "./bin/websecrobot.js" },
+  "files": [
+    "src",
+    "docs",
+    "prompts",
+    "LICENSE",
+    "README.md",
+    "SECURITY.md"
+  ],
+  "engines": {
+    "node": ">=22.19"
+  },
+  "bin": {
+    "websecrobot": "./bin/websecrobot.js"
+  },
   "scripts": {
     "dev": "node --watch server/index.js",
     "start": "node server/index.js",
@@ -20,8 +31,23 @@
     "test": "node --test",
     "check": "node --check server/index.js && node --check src/audit.js && node --check public/app.js && npm test"
   },
-  "keywords": ["security", "web-security", "security-headers", "csp", "hsts", "cookies"],
-  "repository": { "type": "git", "url": "git+https://github.com/tialkan/webSECrobot.git" },
+  "keywords": [
+    "security",
+    "web-security",
+    "security-headers",
+    "csp",
+    "hsts",
+    "cookies"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tialkan/webSECrobot.git"
+  },
   "homepage": "https://tezatlas.com/websecrobot",
-  "bugs": { "url": "https://github.com/tialkan/webSECrobot/issues" }
+  "bugs": {
+    "url": "https://github.com/tialkan/webSECrobot/issues"
+  },
+  "dependencies": {
+    "undici": "^8.11.2"
+  }
 }
